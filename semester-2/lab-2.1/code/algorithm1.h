@@ -25,4 +25,3 @@ double alg1(
     }
     return item;
 }
-

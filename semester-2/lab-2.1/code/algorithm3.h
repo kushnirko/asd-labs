@@ -24,4 +24,3 @@ double alg3(
     }
     return sum;
 }
-
