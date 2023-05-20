@@ -79,11 +79,18 @@ LRESULT CALLBACK WndProc(HWND hWnd,
                 current_matrix = undirected_A;
             RedrawWindow(hWnd, NULL, NULL,
                          RDW_ERASE | RDW_INVALIDATE | RDW_UPDATENOW);
-            DestroyWindow(hButton); // Видалення старих та створення
-            DestroyWindow(hLabel1); // нових контролерів зі
-            DestroyWindow(hLabel2); // зміненими відповідно до
-            CreateButton(hWnd);           // поточного стану програми
-            CreateTips(hWnd);             // текстовими назвами
+            /*
+             * Видалення старих та створення
+             * нових контролерів зі
+             * зміненими відповідно до
+             * поточного стану програми
+             * текстовими назвами
+             */
+            DestroyWindow(hButton);
+            DestroyWindow(hLabel1);
+            DestroyWindow(hLabel2);
+            CreateButton(hWnd);
+            CreateTips(hWnd);
             break;
         }
     }
