@@ -55,7 +55,6 @@ int **SetVerticesCoords(int n)
 draw_data SetEdgeDrawData(int v1, int v2, int is_directed, int **coords, int drawn_lines[N][N])
 {
     const int max_one_step_len = coords[N - 1][y] - coords[0][y];
-    // int one_step_len = 180;
     int min_coords[2] =
     {
         WINDOW_BORDER_OFFSET,
@@ -158,6 +157,8 @@ draw_data SetEdgeDrawData(int v1, int v2, int is_directed, int **coords, int dra
             }
         }
     }
+    else if (dx == dy && is_drawn)
+        data.center[x] -= center_offset[x];
     else
     {
         if (is_drawn)
@@ -180,7 +181,8 @@ draw_data SetEdgeDrawData(int v1, int v2, int is_directed, int **coords, int dra
             }
         }
     }
-    if (is_directed) {
+    if (is_directed)
+    {
         int new_dx = data.end[x] - data.center[x];
         int new_dy = data.end[y] - data.center[y];
         double hypotenuse = GetDistance(data.center, data.end);

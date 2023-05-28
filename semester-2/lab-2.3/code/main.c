@@ -33,7 +33,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
     wndClass.hCursor = LoadCursor(NULL, IDC_ARROW);
     wndClass.hIcon = 0;
     wndClass.lpszMenuName = 0;
-    wndClass.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
+    wndClass.hbrBackground = (HBRUSH) GetStockObject(WHITE_BRUSH);
     wndClass.style = CS_HREDRAW | CS_VREDRAW;
     wndClass.cbClsExtra = 0;
     wndClass.cbWndExtra = 0;
@@ -51,9 +51,12 @@ int WINAPI WinMain(HINSTANCE hInstance,
     ShowWindow(hWnd, nCmdShow);
     UpdateWindow(hWnd);
     int GetMessageRes;
-    while ((GetMessageRes = GetMessage(&lpMsg, hWnd, 0, 0)) != 0) {
-        if (GetMessageRes == -1) return lpMsg.wParam;
-        else {
+    while ((GetMessageRes = GetMessage(&lpMsg, hWnd, 0, 0)) != 0)
+    {
+        if (GetMessageRes == -1)
+            return lpMsg.wParam;
+        else
+        {
             TranslateMessage(&lpMsg);
             DispatchMessage(&lpMsg);
         }
@@ -176,7 +179,8 @@ void CreateTips(HWND hWnd)
     {
         label1_text = label1_directed_graph;
         label2_text = label2_directed_graph;
-    } else
+    }
+    else
     {
         label1_text = label1_undirected_graph;
         label2_text = label2_undirected_graph;
